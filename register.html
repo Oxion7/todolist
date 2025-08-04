@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+<div class="main">
+    <h1>ToDo List</h1>
+    <div class="register-box">
+        <form id="register-form">
+            <div class="input-box">
+                <label for="firstName">Имя</label>
+                <input name="firstName" id="firstName">
+            </div>
+            <p class="error-message" id="firstNameError"></p>
+            <div class="input-box">
+                <label for="lastName">Фамилия</label>
+                <input name="lastName" id="lastName">
+            </div>
+            <p class="error-message" id="lastNameError"></p>
+            <div class="input-box">
+                <label for="email">Почта</label>
+                <input name="email" id="email">
+            </div>
+            <p class="error-message" id="emailError"></p>
+            <div class="input-box">
+                <label for="password">Пароль</label>
+                <input name="password" id="password">
+            </div>
+            <p class="error-message" id="passwordError"></p>
+            <div class="input-box">
+                <label for="confirmPassword">Подтверждение пароля</label>
+                <input name="confirmPassword" id="confirmPassword">
+            </div>
+            <p class="error-message" id="confirmPasswordError"></p>
+            <div class="register">
+                <button>Зарегестрироваться</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="js/register.js"></script>
+</body>
+</html>
