@@ -1,19 +1,4 @@
-class User {
-    constructor(firstName, lastName, email, password) {
-        this.id = Date.now().toString();//псевдо-рандомный id
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-    }
-}
-
-class ToDoList {
-    constructor(userId) {
-        this.userId = userId;
-        this.todos = [];
-    }
-}
+import {User} from "./util.js";
 
 document.getElementById('register-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -48,18 +33,16 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
             return;
         }
         const user = new User(firstName, lastName, email, password);
-        const toDoList = new ToDoList(user.id);
         //get existing data
         const existingUsers = JSON.parse(localStorage.getItem('users'))?? [];
-        const existingTodos = JSON.parse(localStorage.getItem('todos'))?? [];
         if (existingUsers.some(user => user.email === email)) {
             document.getElementById('emailError').textContent = 'Пользователь с такой почтой уже существует!';
             return;
         }
         existingUsers.push(user);
-        existingTodos.push(toDoList);
         localStorage.setItem('users', JSON.stringify(existingUsers));
-        localStorage.setItem('todos', JSON.stringify(existingTodos));
+        sessionStorage.setItem('currentUser', JSON.stringify(user));//TODO: сделать куки
+        window.location.href = 'todo.html';
     }
 })
 

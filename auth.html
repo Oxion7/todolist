@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-
+<div class="main">
+    <h1>ToDo List</h1>
+    <div class="register-box">
+        <form id="register-form">
+            <div class="input-box">
+                <label for="email">Почта</label>
+                <input name="email" id="email">
+            </div>
+            <p class="error-message" id="emailError"></p>
+            <div class="input-box">
+                <label for="password">Пароль</label>
+                <input name="password" id="password">
+            </div>
+            <p class="error-message" id="passwordError"></p>
+            <div class="register">
+                <button>Войти</button>
+            </div>
+        </form>
+        <button class="reg-button">Зарегестрироваться</button>
+    </div>
+</div>
 </body>
 </html>
