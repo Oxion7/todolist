@@ -85,8 +85,3 @@ body {
 .register button:hover {
     cursor: pointer;
 }
-.reg-button{
-    background: none;
-    border: none;
-    color: var(--blue);
-}

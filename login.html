@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <div class="main">
     <h1>ToDo List</h1>
     <div class="register-box">
-        <form id="register-form">
+        <form id="login-form">
             <div class="input-box">
                 <label for="email">Почта</label>
                 <input name="email" id="email">
@@ -24,8 +24,12 @@
                 <button>Войти</button>
             </div>
         </form>
-        <button class="reg-button">Зарегестрироваться</button>
+        <a href="register.html">
+            <button class="reg-button">Зарегестрироваться</button>
+        </a>
     </div>
 </div>
+<script type="module" src="js/auto-redirect.js"></script>
+<script type="module" src="js/login.js"></script>
 </body>
 </html>

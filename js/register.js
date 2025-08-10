@@ -1,4 +1,4 @@
-import {User} from "./util.js";
+import {User, checkRegexp, setCookie} from "./util.js";
 
 document.getElementById('register-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -14,9 +14,10 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
     const confirmPassword = document.getElementById('confirmPassword').value.trim();
 
     //regex
+    //TODO: fix length and add proper errors
     const nameRegExp = /^[а-яА-Яa-zA-Z]+$/;
     const emailRegExp = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
-    const passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\d\s:])(\S){8,16}$/;/*
+    const passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\s:])(\S){8,16}$/;/*
     1 number (0-9)
     1 uppercase letters
     1 lowercase letters
@@ -41,15 +42,8 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
         }
         existingUsers.push(user);
         localStorage.setItem('users', JSON.stringify(existingUsers));
-        sessionStorage.setItem('currentUser', JSON.stringify(user));//TODO: сделать куки
+        setCookie('currentUser', JSON.stringify({id: user.id, email: user.email}), 1);
         window.location.href = 'todo.html';
     }
 })
 
-function checkRegexp(regexp, text, value, errorElement) {
-    if (regexp.test(value)) {
-        return true;
-    }
-    document.getElementById(errorElement).textContent = text;
-    return false;
-}
