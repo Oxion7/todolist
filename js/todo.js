@@ -1,9 +1,20 @@
 import {deleteCookie, getCookie, Todo} from "./util.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    let currentUser = JSON.parse(getCookie("currentUser"));
-    const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
-    currentUser = existingUsers.find((user) => user.id === currentUser.id);
+
+    try {
+        let currentUser = JSON.parse(getCookie("currentUser"));
+        const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
+        currentUser = existingUsers.find((user) => user.id === currentUser.id);
+
+        if (!currentUser) {
+            throw new Error('User not found');
+        }
+    } catch (e) {
+        console.error('Error parsing user data:', e);
+        window.location.href = 'login.html';
+        return;
+    }
 
     const showTodoFormBtn = document.getElementById('showTodoForm');
     const createModal = document.getElementById('todoFormModal');
