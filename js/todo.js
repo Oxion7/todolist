@@ -1,4 +1,4 @@
-import {deleteCookie, getCookie, setCookie, Todo} from "./util.js";
+import {deleteCookie, getCookie, Todo} from "./util.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     let currentUser = JSON.parse(getCookie("currentUser"));
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const todoContainer = document.getElementById('todoContainer');
 
-    const logoutBtn =document.getElementById('logoutBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
     logoutBtn.addEventListener('click', () => {
         deleteCookie('currentUser');

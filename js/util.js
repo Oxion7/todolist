@@ -42,19 +42,12 @@ export class Todo {
     }
 }
 
-export function checkRegexp(regexp, text, value, errorElement) {
-    if (regexp.test(value)) {
-        return true;
-    }
-    document.getElementById(errorElement).textContent = text;
-    return false;
-}
-
 export function setCookie(name, value, expDays) {
     const date = new Date();
     date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
     document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";
 }
+
 export function deleteCookie(name) {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }

@@ -1,4 +1,4 @@
-import {User, checkRegexp, setCookie} from "./util.js";
+import {User, setCookie} from "./util.js";
 
 document.getElementById('register-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -14,7 +14,6 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
     const confirmPassword = document.getElementById('confirmPassword').value.trim();
     let isValid = true;
     //regex
-    //TODO: fix length and add proper errors
     const nameRegExp = /^[а-яА-Яa-zA-Z-]+$/;
     const emailRegExp = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
     const passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\s:])(\S){8,16}$/;/*
