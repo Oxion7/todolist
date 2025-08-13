@@ -2,9 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/todo.css">
 </head>
 <body>
+<header>
+    <p id="headerEmail"></p>
+    <a>
+        <button class="logout" id="logoutBtn">Выйти</button>
+    </a>
+</header>
+<script type="module">
+    import {getCookie} from "./js/util.js";
+
+    let currentUser = JSON.parse(getCookie("currentUser"));
+    const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
+    currentUser = existingUsers.find((user) => user.id === currentUser.id);
+    document.getElementById("headerEmail").textContent = currentUser.firstName + " " + currentUser.lastName;
+</script>
+<main>
+    <button id="showTodoForm" class="add-todo-btn">+ Создать</button>
+    <div class="todos-container" id="todoContainer">
+        <!--
+        <div class="todo-item">
+            <h3>title</h3>
+                <p>text</p>
+                <div class="todo-actions">
+                    <button class="delete-btn" data-id="">Удалить</button>
+                </div>
+        </div>
+        -->
+    </div>
+    <!-- Create Form -->
+    <div id="todoFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Новая запись</h2>
+            <form id="todoForm">
+                <div class="form-group">
+                    <label for="todoTitle">Заголовок</label>
+                    <input type="text" id="todoTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="todoText">Описание</label>
+                    <textarea id="todoText" rows="8" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Создать</button>
+            </form>
+        </div>
+    </div>
+    <div id="editFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close-edit">&times;</span>
+            <h2>Редактировать запись</h2>
+            <form id="editTodoForm">
+                <input type="hidden" id="editTodoId">
+                <div class="form-group">
+                    <label for="editTodoTitle">Заголовок</label>
+                    <input type="text" id="editTodoTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="editTodoText">Описание</label>
+                    <textarea id="editTodoText" rows="8" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script type="module" src="js/todo.js"></script>
 
 </body>
 </html>

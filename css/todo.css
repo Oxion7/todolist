@@ -1,0 +1,237 @@
+@import "variables.css";
+
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+header {
+    padding: 12px 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg-header);
+}
+
+header p {
+    font-size: 1.5em;
+    margin: 0 1em;
+}
+
+header a {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+}
+
+header button {
+    margin: auto;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+main {
+    width: 80%;
+    margin: 2em auto;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+.todo-form input,
+.todo-form textarea {
+    padding: 0.5em;
+    border-radius: 4px;
+    border: 1px solid var(--border-light-grey);
+    background: var(--bg-light-grey);
+    color: white;
+}
+
+.todo-form textarea {
+    min-height: 100px;
+}
+
+.todo-form button {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.todos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.todo-item {
+    margin: 1em;
+    background: var(--bg-light-grey);
+    padding: 1em;
+    border-radius: 8px;
+    border-left: 4px solid var(--blue);
+}
+
+.todo-item h3 {
+    margin-top: 0;
+}
+
+.todo-item p {
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    height: 200px;
+    overflow-y: auto;
+    padding: 5px;
+}
+.todo-item p::-webkit-scrollbar {
+    width: 5px;
+}
+
+.todo-item p::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 5px;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.5em;
+}
+
+.todo-actions button {
+    padding: 0.25em 0.5em;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background: var(--error-red);
+    color: white;
+    border: none;
+}
+.change-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+}
+
+.add-todo-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-todo-btn:hover {
+    background: #3a5bd9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: var(--bg-grey);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid var(--border-light-grey);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: white;
+}
+.close-edit {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-edit:hover {
+    color: white;
+}
+
+.change-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.change-btn:hover {
+    background: #3a5bd9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-light-grey);
+    background: var(--bg-light-grey);
+    color: white;
+}
+
+.submit-btn{
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+.submit-btn:hover {
+    background: #3a5bd9;
+}

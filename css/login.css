@@ -1,7 +1,2 @@
 @import "variables.css";
 @import "register.css";
-.reg-button{
-    background: none;
-    border: none;
-    color: var(--blue);
-}

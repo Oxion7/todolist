@@ -2,11 +2,11 @@ import {User, checkRegexp, setCookie} from "./util.js";
 
 document.getElementById('register-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    //clear previous error messages
+    //clear error messages
     document.querySelectorAll('.error-message').forEach(el => {
         el.textContent = '';
     });
-    //get values
+
     const firstName = document.getElementById('firstName').value.trim();
     const lastName = document.getElementById('lastName').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -24,18 +24,54 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
     1 non-alpha numeric number
     8-16 characters
     */
-    if (checkRegexp(nameRegExp, 'Неправильное имя!', firstName, 'firstNameError') &&
-        checkRegexp(nameRegExp, 'Неправильная фамилия!', lastName, 'lastNameError') &&
-        checkRegexp(emailRegExp, 'Неправильный email!', email, 'emailNameError') &&
-        checkRegexp(passwordRegExp, 'Неправильный пароль', password, 'passwordNameError')
-    ) {
-        if (password !== confirmPassword) {
-            document.getElementById('confirmPasswordError').textContent = 'Пароли не совпадают!';
-            return;
-        }
+    // first name
+    if (!firstName) {
+        document.getElementById('firstNameError').textContent = 'Поле имени обязательно для заполнения';
+    } else if (!nameRegExp.test(firstName)) {
+        document.getElementById('firstNameError').textContent = 'Имя может содержать только буквы (русские или английские)';
+    } else if (firstName.length < 2 || firstName.length > 30) {
+        document.getElementById('firstNameError').textContent = 'Имя должно быть от 2 до 30 символов';
+    }
+
+    //  last name
+    if (!lastName) {
+        document.getElementById('lastNameError').textContent = 'Поле фамилии обязательно для заполнения';
+    } else if (!nameRegExp.test(lastName)) {
+        document.getElementById('lastNameError').textContent = 'Фамилия может содержать только буквы (русские или английские)';
+    } else if (lastName.length < 2 || lastName.length > 30) {
+        document.getElementById('lastNameError').textContent = 'Фамилия должна быть от 2 до 30 символов';
+    }
+
+    // email
+    if (!email) {
+        document.getElementById('emailError').textContent = 'Поле email обязательно для заполнения';
+    } else if (!emailRegExp.test(email)) {
+        document.getElementById('emailError').textContent = 'Введите корректный email (например: example@domain.com)';
+    }
+
+    // password
+    if (!password) {
+        document.getElementById('passwordError').textContent = 'Поле пароля обязательно для заполнения';
+    } else if (!passwordRegExp.test(password)) {
+        document.getElementById('passwordError').textContent = 'Пароль должен содержать: 8-16 символов, минимум 1 цифру, 1 заглавную букву, 1 строчную букву и 1 специальный символ';
+    } else if (password.length < 8 || password.length > 16) {
+        document.getElementById('passwordError').textContent = 'Длина пароля должна быть от 8 до 16 символов';
+    }
+
+    // confirm password
+    if (!confirmPassword) {
+        document.getElementById('confirmPasswordError').textContent = 'Пожалуйста, подтвердите пароль';
+    } else if (password !== confirmPassword) {
+        document.getElementById('confirmPasswordError').textContent = 'Пароли не совпадают';
+    }
+    if (firstName && lastName && email && password && confirmPassword &&
+        nameRegExp.test(firstName) && nameRegExp.test(lastName) &&
+        emailRegExp.test(email) && passwordRegExp.test(password) &&
+        password === confirmPassword) {
+
         const user = new User(firstName, lastName, email, password);
-        //get existing data
-        const existingUsers = JSON.parse(localStorage.getItem('users'))?? [];
+
+        const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
         if (existingUsers.some(user => user.email === email)) {
             document.getElementById('emailError').textContent = 'Пользователь с такой почтой уже существует!';
             return;

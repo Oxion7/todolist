@@ -1,13 +1,4 @@
 @import "variables.css";
-body {
-    margin: auto;
-    background: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: noto-sans, Inter, sans-serif;
-}
 
 .main {
     margin: auto;
@@ -84,4 +75,9 @@ body {
 }
 .register button:hover {
     cursor: pointer;
+}
+.reg-button{
+    background: none;
+    border: none;
+    color: var(--blue);
 }
