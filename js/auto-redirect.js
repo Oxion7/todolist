@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const userExists = existingUsers.some(u => u.id === user.id && u.email === user.email);
 
             if (userExists) {
-                window.location.href = 'todo.html';
+                window.location.href = 'home.html';
             }
         } catch (e) {
 

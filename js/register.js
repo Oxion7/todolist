@@ -88,7 +88,7 @@ document.getElementById('register-form')?.addEventListener('submit', (e) => {
         existingUsers.push(user);
         localStorage.setItem('users', JSON.stringify(existingUsers));
         setCookie('currentUser', JSON.stringify({id: user.id, email: user.email}), 1);
-        window.location.href = 'todo.html';
+        window.location.href = 'home.html';
     }
 })
 

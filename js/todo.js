@@ -1,9 +1,9 @@
 import {deleteCookie, getCookie, Todo} from "./util.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    let currentUser = JSON.parse(getCookie("currentUser"));
     try {
-        let currentUser = JSON.parse(getCookie("currentUser"));
+
         const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
         currentUser = existingUsers.find((user) => user.id === currentUser.id);
 

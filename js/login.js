@@ -19,5 +19,5 @@ document.getElementById('login-form')?.addEventListener('submit', (e) => {
         return;
     }
     setCookie('currentUser', JSON.stringify({id: user.id, email: user.email}), 1);
-    window.location.href = 'todo.html';
+    window.location.href = 'home.html';
 })
