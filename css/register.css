@@ -22,7 +22,7 @@
     justify-items: center;
     gap: 1rem;
     background: var(--bg-grey);
-    border-radius: 10px;
+    border-radius: 0.6rem;
     border-color: var(--border-light-grey);
     border-style: solid;
     padding: 1rem;
@@ -52,7 +52,7 @@
     background: var(--bg-light-grey);
     border: none;
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     color: white;
 }
 
@@ -70,7 +70,7 @@
     border: none;
     padding: 0.5rem;
     font-size: 1.2rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 .register button:hover {
     cursor: pointer;

@@ -50,7 +50,7 @@ main {
 .todo-form input,
 .todo-form textarea {
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     border: 1px solid var(--border-light-grey);
     background: var(--bg-light-grey);
     color: white;
@@ -66,7 +66,7 @@ main {
     border: none;
     padding: 0.5rem;
     font-size: 1.2rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
 }
 
@@ -79,7 +79,7 @@ main {
     margin: 1em;
     background: var(--bg-light-grey);
     padding: 1em;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     border-left: 4px solid var(--blue);
 }
 
@@ -113,7 +113,7 @@ main {
 .todo-actions button {
     padding: 0.25rem 0.5rem;
     font-size: 1rem;
-    border-radius: 4px;
+    border-radius: 0.6rem;
     cursor: pointer;
 }
 
@@ -134,7 +134,7 @@ main {
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     margin-bottom: 1.5rem;
 }
@@ -161,7 +161,7 @@ main {
     border: 1px solid var(--border-light-grey);
     width: 80%;
     max-width: 32rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     position: relative;
 }
 
@@ -192,7 +192,7 @@ main {
     color: white;
     border: none;
     padding: 0.5rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
 }
 
@@ -213,7 +213,7 @@ main {
 .form-group textarea {
     width: 100%;
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     border: 1px solid var(--border-light-grey);
     background: var(--bg-light-grey);
     color: white;
@@ -225,7 +225,7 @@ main {
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     width: 100%;
 }
