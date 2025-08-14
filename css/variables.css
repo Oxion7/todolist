@@ -1,0 +1,18 @@
+:root{
+    --bg: #292A2D;
+    --bg-header: #212327;
+    --bg-grey: #1a1a1a;
+    --bg-light-grey: #404045;
+    --border-light-grey: #272727;
+    --error-red: #ff3333;
+    --blue: #4d6bfe;
+}
+body {
+    margin: auto;
+    background: var(--bg);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: noto-sans, Inter, sans-serif;
+}
