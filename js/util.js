@@ -6,6 +6,20 @@ export class User {
         this.email = email;
         this.password = password;
     }
+
+    static getUserById(id) {
+        const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
+        return existingUsers.find(user => user.id === id);
+    }
+    static getUserByEmail(email) {
+        const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
+        return existingUsers.find(user => user.email === email);
+    }
+    static addUser(user){
+        const existingUsers = JSON.parse(localStorage.getItem('users')) ?? []
+        existingUsers.push(user);
+        localStorage.setItem('users', JSON.stringify(existingUsers));
+    }
 }
 
 export class Todo {
@@ -35,7 +49,7 @@ export class Todo {
 
     static editTodo(id, title, text) {
         const todos = JSON.parse(localStorage.getItem('todos')) || [];
-        const todoIndex = todos.findIndex(t => t.id === id);
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         todos[todoIndex].title = title;
         todos[todoIndex].text = text;
         localStorage.setItem('todos', JSON.stringify(todos));

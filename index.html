@@ -12,14 +12,6 @@
         <button class="logout" id="logoutBtn">Выйти</button>
     </a>
 </header>
-<script type="module">
-    import {getCookie} from "./js/util.js";
-
-    let currentUser = JSON.parse(getCookie("currentUser"));
-    const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
-    currentUser = existingUsers.find((user) => user.id === currentUser.id);
-    document.getElementById("headerEmail").textContent = currentUser.firstName + " " + currentUser.lastName;
-</script>
 <main>
     <button id="showTodoForm" class="add-todo-btn">+ Создать</button>
     <div class="todos-container" id="todoContainer">

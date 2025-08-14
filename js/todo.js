@@ -1,20 +1,8 @@
-import {deleteCookie, getCookie, Todo} from "./util.js";
+import {deleteCookie, getCookie, Todo, User} from "./util.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    let currentUser = JSON.parse(getCookie("currentUser"));
-    try {
-
-        const existingUsers = JSON.parse(localStorage.getItem('users')) ?? [];
-        currentUser = existingUsers.find((user) => user.id === currentUser.id);
-
-        if (!currentUser) {
-            throw new Error('User not found');
-        }
-    } catch (e) {
-        console.error('Error parsing user data:', e);
-        window.location.href = 'login.html';
-        return;
-    }
+    const currentUserId = JSON.parse(getCookie("currentUser")).id;
+    const currentUser = User.getUserById(currentUserId);
 
     const showTodoFormBtn = document.getElementById('showTodoForm');
     const createModal = document.getElementById('todoFormModal');
@@ -31,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const todoContainer = document.getElementById('todoContainer');
 
     const logoutBtn = document.getElementById('logoutBtn');
+
+    document.getElementById("headerEmail").textContent = currentUser.firstName + " " + currentUser.lastName;
 
     logoutBtn.addEventListener('click', () => {
         deleteCookie('currentUser');
@@ -50,11 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
         todoForm.reset();
     })
     window.addEventListener('click', (event) => {
-        if (event.target === createModal) {
-            createModal.style.display = 'none';
-        }
-        if (event.target === editModal) {
-            editModal.style.display = 'none';
+        switch (event.target) {
+            case createModal:
+                createModal.style.display = 'none';
+                break;
+            case editModal:
+                editModal.style.display = 'none';
+                break;
         }
     });
     // create

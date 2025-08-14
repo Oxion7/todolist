@@ -1,21 +1,17 @@
-import {getCookie} from "./util.js";
+import {getCookie, User} from "./util.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const currentUserCookie = getCookie('currentUser');
+    const currentUserId = JSON.parse(getCookie('currentUser')).id;
 
-    if (currentUserCookie) {
-        try {
-            const user = JSON.parse(currentUserCookie);
+    if (!currentUserId) return;
+    try {
+        const user = User.getUserById(currentUserId);
 
-            const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const userExists = existingUsers.some(u => u.id === user.id && u.email === user.email);
-
-            if (userExists) {
-                window.location.href = 'index.html';
-            }
-        } catch (e) {
-
-            console.error('Error parsing user cookie:', e);
+        if (user) {
+            window.location.href = 'index.html';
         }
+    } catch (e) {
+
+        console.error('Error parsing user cookie:', e);
     }
 });
